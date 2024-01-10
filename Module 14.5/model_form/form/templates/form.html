@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block content %}
+<h1>this is form page</h1>
+{% if data %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Roll</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">CGPA</th>
+      <th scope="col">Binary</th>
+      <th scope="col">Check</th>
+      <th scope="col">Reservation</th> 
+      <th scope="col">Image</th>
+      <th scope="col">Slug</th>
+      <th scope="col">Comment</th> 
+      <th scope="col">Delete</th> 
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data%}
+    <tr>
+      <th scope="row">{{i.roll}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.birthday}}</td>
+      <td>{{i.cgpa}}</td>
+      <td>{{i.binary_field}}</td>
+      <td>{{i.boolean_field}}</td>
+      <td>{{i.reservation_time}}</td>
+      <td>{{i.file}}</td>
+      <td>{{i.slug_field}}</td>
+      <td>{{i.text}}</td>
+      <td><a class="btn btn-danger text-white" href="{% url 'delete' i.roll %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<h3>No data available</h3>
+{% endif %} {% endblock content %}
